@@ -23,8 +23,14 @@ def list_comprehension_funct(simple_list):
     print(my_list)
 
 
+def what_are_we_doing(param_list_1):
+    another_list = [item + " lovable" for item in param_list_1]
+    print(another_list)
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # print_hi('PyCharm')
+    list_1 = ["cat", "dog", "mouse"]
     list_comprehension_funct([1, 2, 3, 4, 5, 6])
+    what_are_we_doing(list_1)
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -1,3 +1,4 @@
+from lib import my_func
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -27,10 +28,16 @@ def what_are_we_doing(param_list_1):
     another_list = [item + " lovable" for item in param_list_1]
     print(another_list)
 
+
+def generator_function():
+    pass
+# Start from here :)
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # print_hi('PyCharm')
     list_1 = ["cat", "dog", "mouse"]
     list_comprehension_funct([1, 2, 3, 4, 5, 6])
     what_are_we_doing(list_1)
+    my_func()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

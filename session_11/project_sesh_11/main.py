@@ -1,43 +1,22 @@
-from lib import my_func
+from libs.lib import my_func
+from libs.lib import print_hi
+from libs.lib import list_comprehension_funct
+from libs.lib_2 import *
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-    my_list = {1: "Alice", 2: "Fryja", 3: "Scadi", 4: "Athena", 5: "Baba"}
-    print(type(my_list))
-    # for item in my_list:
-    #     print(item, end=" ")
-    my_iter = iter(my_list.keys())
-    print(next(my_iter))
-    print(next(my_iter))
-    print(next(my_iter))
-    print(next(my_iter))
-    print(next(my_iter))
-
-
-def list_comprehension_funct(simple_list):
-    my_list = [x for x in simple_list if x%2]
-    for x in simple_list:
-        # print(item)
-        if x%2 == 1:
-            my_list.append(x)
-    print(my_list)
-
-
-def what_are_we_doing(param_list_1):
-    another_list = [item + " lovable" for item in param_list_1]
-    print(another_list)
-
-
-def generator_function():
-    pass
-# Start from here :)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     # print_hi('PyCharm')
     list_1 = ["cat", "dog", "mouse"]
-    list_comprehension_funct([1, 2, 3, 4, 5, 6])
-    what_are_we_doing(list_1)
-    my_func()
+    # list_comprehension_funct([1, 2, 3, 4, 5, 6])
+    # what_are_we_doing(list_1)
+
+    """
+    Using the generator_function(), wait for a confirmation from the user, to get the next element
+    from a given collection, and, if en error arises, prompt the user and exit the loop, without
+    any "red text".
+    """
+    var = input("Message to user")
+    my_single_obj = generator_function(list_1)
+    print(type(my_single_obj))
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

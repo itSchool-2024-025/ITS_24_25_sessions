@@ -1,0 +1,41 @@
+1. Homework discussion
+2. About PyQt
+2.0.
+	visual studio installe r -> build tools -> C++, desktop development
+	Install pyqt5/6
+	Install pyqt-tools
+	Install pyside
+
+	pyui6 -x main.ui -o main.py
+
+2.1. Create an PyQt app
+2.2. Add logic to it
+3. Release app as executable
+
+1. My Calc
+2. 10 digit buttons 0 - 9
+3. a digital text viewer (as output only)
+4. Operations: sum, div, mult., 
+
+Teams Event
+
+20 min: Define GUI - define buttons, text viewer
+		- app layout
+		- color scheme (bonus)
+-> done
+Vote: Which is the best design?
+-> done
+
+5 min: .ui file -> .py file (gui.py)
+(everybody all together) 15 min: Create a Pycharm project. Add gui.py file to it.
+10 min: Rethink the GUI
+
+Gr1: 3.03 - 		IV
+Gr2: 4.30 - II
+Gr3: 4.22 -    III
+Gr4: 4.85 -I
+
+Dif:
+color scheme
+what to color
+elemeent geometry

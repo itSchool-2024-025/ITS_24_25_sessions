@@ -15,12 +15,14 @@ class Ui_MainWindow(object):
         MainWindow.resize(204, 293)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.number7 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.number7.setGeometry(QtCore.QRect(0, 50, 51, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.number7.setFont(font)
         self.number7.setObjectName("number7")
+
         self.number = QtWidgets.QPushButton(parent=self.centralwidget)
         self.number.setGeometry(QtCore.QRect(50, 50, 51, 51))
         font = QtGui.QFont()
@@ -69,36 +71,42 @@ class Ui_MainWindow(object):
         font.setPointSize(20)
         self.number4.setFont(font)
         self.number4.setObjectName("number4")
+
         self.pushButton_10 = QtWidgets.QPushButton(parent=self.centralwidget)
         self.pushButton_10.setGeometry(QtCore.QRect(50, 200, 51, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.pushButton_10.setFont(font)
         self.pushButton_10.setObjectName("pushButton_10")
+
         self.Devide = QtWidgets.QPushButton(parent=self.centralwidget)
         self.Devide.setGeometry(QtCore.QRect(150, 200, 51, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Devide.setFont(font)
         self.Devide.setObjectName("Devide")
+
         self.Multip = QtWidgets.QPushButton(parent=self.centralwidget)
         self.Multip.setGeometry(QtCore.QRect(150, 150, 51, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Multip.setFont(font)
         self.Multip.setObjectName("Multip")
+
         self.Dif = QtWidgets.QPushButton(parent=self.centralwidget)
         self.Dif.setGeometry(QtCore.QRect(150, 100, 51, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Dif.setFont(font)
         self.Dif.setObjectName("Dif")
+
         self.Sum = QtWidgets.QPushButton(parent=self.centralwidget)
         self.Sum.setGeometry(QtCore.QRect(150, 50, 51, 51))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.Sum.setFont(font)
         self.Sum.setObjectName("Sum")
+
         self.delete_button = QtWidgets.QPushButton(parent=self.centralwidget)
         self.delete_button.setGeometry(QtCore.QRect(0, 200, 51, 51))
         font = QtGui.QFont()
@@ -112,6 +120,7 @@ class Ui_MainWindow(object):
         font.setPointSize(20)
         self.equal_button.setFont(font)
         self.equal_button.setObjectName("equal_button")
+
         self.lineEdit = QtWidgets.QLineEdit(parent=self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(0, 0, 201, 51))
         font = QtGui.QFont()
@@ -119,6 +128,7 @@ class Ui_MainWindow(object):
         self.lineEdit.setFont(font)
         self.lineEdit.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.lineEdit.setObjectName("lineEdit")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 204, 22))

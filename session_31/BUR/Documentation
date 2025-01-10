@@ -1,0 +1,42 @@
+Aplicatie desktop (PyQt): Bureaucratic Register - BUR
+
+Input:
+	- certification template.
+	- db - excel.
+
+Output:
+	- one certificate with data from a row form the db.
+	- bonus: save it as pdf as well.
+
+Data curenta - b0
+Nr. Crt - b1
+Nume - b3
+Prenume - b2
+DDN - b4
+Adresa - Str. - b5
+Adresa - nr. - b6
+Adresa - loc. - b7
+Adresa - jud. - b8
+CNP - b9
+
+1. Use the template.
+	Open it - Done
+		-> method used: open_docx()
+	Get text from it - Done
+		-> method used: open_docx()
+	Replace tags from the text - RegEx
+		-> ToDo
+	Save it as new doc.
+		-> ToDo
+	-> to use module docx
+
+2. Get data from db.
+	Open it
+		-> ToDo
+	Get data from it, each row as separate data values.
+		-> ToDo
+	-> to use module pandas
+	
+3. Save new cert. as a copy.
+		-> ToDo
+	-> to use module docx

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}For Example{% endblock %}
+
+	{% block content %}
+		<h1> You should know these exist </h1>
+		{% for pl in prog_languages%}
+		<h4> {{pl}} </h4>
+		{% endfor %}
+	{% endblock %}
+
+
+

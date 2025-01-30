@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+
+{% block header %}
+            <h1>Events View</h1>
+{% endblock %}
+
+
+{% block sidebar %}
+    <ul>
+
+        <li>
+            <a href="{{ url_for('main.add_event') }}"><br>
+                <strong>Add Event</strong>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('main.delete_event') }}"><br>
+                <strong>Delete Event</strong>
+            </a>
+        </li>
+
+
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+    {% for event in events %}
+<!--rethink page using bootstraps-->
+    <ul>
+        <li><strong>Name:</strong> {{ event.name }}</li>
+        <li><strong>Date:</strong> {{ event.date }}</li>
+        <li><strong>Time:</strong> {{ event.time }}</li>
+        <li><strong>Description:</strong> {{ event.description }}</li>
+    </ul>
+    {% endfor %}
+
+{% endblock %}
+
+{% block footer %}
+            <p><strong> <a href="{{ url_for('main.show_assignment') }}">IT School<strong></p>
+{% endblock %}
+

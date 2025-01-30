@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block header %}
+            <h1>Your first Event Planner</h1>
+{% endblock %}
+
+
+{% block sidebar %}
+    <ul>
+        <li>
+            <a href="{{ url_for('main.show_events') }}"><br>
+                <strong>Home</strong>
+            </a>
+        </li>
+
+
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+    <picture>
+  <source media="(min-width: 250px)" srcset="static/EventPlanner.png">
+  <img src="{{ url_for('static', filename='EventPlanner.png') }}"
+       alt="Event Planner"
+       style="max-width: 100%; height: auto; display: block; margin: auto;">
+</picture>
+{% endblock %}
+
+

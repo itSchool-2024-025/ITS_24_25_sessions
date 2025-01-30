@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Default Title{% endblock %}</title>
+
+    <style>
+        * {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensures full height */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stacks header, section, footer */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #D8C8BB;
+
+    text-align: center;
+    font-size: 35px;
+    color: black;
+}
+
+/* Make section take up remaining space */
+section {
+    display: flex;
+    align-items: stretch; /* Ensures both sections grow equally */
+    flex: 1; /* Makes section fill available space */
+}
+
+nav {
+    width: 15%;
+    background: #f8aa69;
+    padding: 20px;
+    font-size: 25px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+article {
+    width: 90%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+picture img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+/* Style the footer - stays at bottom */
+footer {
+    background-color: #D8C8BB;
+
+    text-align: center;
+    color: black;
+    font-size: 15px;
+}
+
+<!--This is needed so that the footer and content in extended pages are not shown as links -->
+
+    </style>
+</head>
+<body>
+
+    <header>
+        {% block header %}
+            <h1>Default Header</h1>
+        {% endblock %}
+    </header>
+
+    <section>
+        <nav>
+            {% block sidebar %}
+                <ul>
+
+                </ul>
+            {% endblock %}
+        </nav>
+
+        <article>
+            {% block content %}
+                <h1>Default Content</h1>
+            {% endblock %}
+        </article>
+    </section>
+
+    <footer>
+        {% block footer %}
+            <p><strong>IT School<strong></p>
+        {% endblock %}
+    </footer>
+
+</body>
+</html>

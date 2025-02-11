@@ -22,10 +22,52 @@
 
 {% block content %}
     <h1>Here add content for the Delete Event</h1>
+    <table border="1">
+        <thead>
+        <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Description</th>
+        <th>Action</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <!-- {% set index = 1 %}-->
+
+        {% for event in events %}
+        <tr>
+            <td>{{ loop.index }} </td>
+            <td>{{ event.name_event }} </td>
+            <td>{{ event.date }}</td>
+            <td>{{ event.time }} </td>
+            <td>{{ event.description }}</td>
+            <td>
+                <form action = "{{ url_for('main.delete_event') }}" method = "POST">
+                    <input type="hidden" name="event_name" value="{{ event.name_event }}">
+
+                    <button type="submit">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+
+        <!-- {% set index = index + 1 %}-->
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
 {% endblock %}
 
 {% block footer %}
-            <p><strong> <a href="{{ url_for('main.show_assignment') }}">IT School<strong></p>
+             <p> <a href="{{ url_for('main.show_assignment') }}">IT School<strong></strong></a></p>
 {% endblock %}
 
 

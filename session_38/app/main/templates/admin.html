@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Admin{% endblock %}
+
+{% block navbar %}
+            <div class="topnav">
+            <a href="{{ url_for('main.home') }}">Home</a>
+            <a class="active" href="{{ url_for('main.admin') }}">Admin</a>
+            <a href="{{ url_for('main.add_item') }}">Add Item</a>
+            <a href="{{ url_for('main.about') }}">About</a>
+            </div>
+        {% endblock %}
+
+{% block content %}
+<div style="padding-left:16px">
+    <h2></h2>
+    <br>
+    <br>
+<table border="1">
+
+    <thead>
+        <tr>
+        <th onclick="sortTable(0)">ID</th>
+        <th onclick="sortTable(1)">Inventory Number</th>
+        <th onclick="sortTable(2)">Description</th>
+        <th onclick="sortTable(3)">State</th>
+        <th onclick="sortTable(4)">Booked</th>
+        <th onclick="sortTable(4)">Action</th>
+        </tr>
+    </thead>
+
+        <tbody>
+
+        <!-- {% set index = 1 %}-->
+
+        {% for item in inventory %}
+        <tr>
+
+            <td>{{ loop.index }} </td>
+            <td contenteditable='false'>{{ item.inventory_number }} </td>
+            <td contenteditable='true'>{{ item.inventory_description }}</td>
+            <td contenteditable='true'>{{ item.inventory_state }} </td>
+            <td contenteditable='true'>{{ item.inventory_booked }}</td>
+
+            <td>
+                <form action = "{{ url_for('main.admin') }}" method = "POST">
+                    <input type="hidden" name="inventory_number" value="{{ item.inventory_number }}">
+                    <input type="hidden" name="inventory_description" value="{{ item.inventory_description }}">
+                    <input type="hidden" name="inventory_state" value="{{ item.inventory_state }}">
+                    <input type="hidden" name="inventory_booked" value="{{ item.inventory_booked }}">
+                    <button type="submit">
+                        Update
+                    </button>
+                </form>
+            </td>
+
+        </tr>
+
+        <!-- {% set index = index + 1 %}-->
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

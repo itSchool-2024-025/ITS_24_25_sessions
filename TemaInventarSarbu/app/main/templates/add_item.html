@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Add{% endblock %}
+{% block navbar %}
+<div class="topnav">
+    <a href="{{ url_for('main.home') }}">Home</a>
+    <a href="{{ url_for('main.admin') }}">Admin</a>
+    <a class="active" href="{{ url_for('main.add_item') }}">Add Item</a>
+    <a href="{{ url_for('main.about') }}">About</a>
+    <a href="{{ url_for('main.register') }}">Register</a>
+    <a href="{{ url_for('main.login') }}">Login</a>
+    <a href="{{ url_for('main.logout') }}">Logout</a>
+</div>
+
+<!-- Display the logged-in user -->
+<div style="padding: 10px;">
+    {% if current_user.is_authenticated %}
+        <p>Welcome, <strong>{{ current_user.user_name }}</strong>!</p>
+    {% else %}
+        <p></p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block content %}
+<h4>In this page items can be added to inventory</h4>
+<div style="padding-left:16px">
+      <h2></h2>
+    <form method="POST">
+        <label for="inventory_number"><strong>Item Number:</strong></label><br>
+        <input type="number" id="inventory_number" name="inventory_number" required><br><br>
+
+        <label for="inventory_description"><strong>Item Description:</strong></label><br>
+        <input type="text" id="inventory_description" name="inventory_description" ><br><br>
+
+        <label><strong>Item State: </strong></label><br>
+        <!--
+        <input type="text" id="inventory_state" name="inventory_state" ><br><br>
+-->
+        <select name="inventory_state">
+            <option value="OK"  selected > OK </option>
+            <option value="Damaged" selected> Damaged </option>
+            <option value="Maintenance" selected> Maintenance </option>
+        </select><br><br>
+
+        <label><strong> Item Owned: </strong></label><br>
+        <select name="inventory_booked">
+            <option value="Free" selected >Free</option>
+        </select><br><br>
+
+        <button class="button" type="submit" >Submit</button>
+    </form>
+
+</div>
+{% endblock %}

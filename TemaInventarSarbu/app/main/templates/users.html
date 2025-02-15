@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Users{% endblock %}
+
+
+{% block content %}
+<div style="padding-left:16px">
+    <h2>Users List</h2>
+    <br>
+    <br>
+    <table border="1" style="width:50%">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">ID</th>
+                <th onclick="sortTable(1)">User Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td> {{ loop.index }} </td>
+                <td> {{ user.user_name }} </td>
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if message %}
+<p><strong>{{ message }}</strong></p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block navbar %}
+<div class="topnav">
+    <a href="{{ url_for('main.home') }}">Home</a>
+    <a href="{{ url_for('main.admin') }}">Admin</a>
+    <a href="{{ url_for('main.add_item') }}">Add Item</a>
+    <a class="active" href="{{ url_for('main.about') }}">About</a>
+    <a href="{{ url_for('main.register') }}">Register</a>
+    <a href="{{ url_for('main.login') }}">Login</a>
+    <a href="{{ url_for('main.logout') }}">Logout</a>
+</div>
+
+<!-- Display the logged-in user -->
+<div style="padding: 10px;">
+    {% if current_user.is_authenticated %}
+        <p>Welcome, <strong>{{ current_user.user_name }}</strong>!</p>
+    {% else %}
+        <p> </p>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div style="padding-left:16px">
+  <h2></h2>
+
+    <picture>
+    <source media="(min-width: 250px)" srcset="static/Homework.png">
+    <img src="{{ url_for('static', filename='Homework.png') }}"
+       alt="Homework Inventory"
+       style="max-width: 100%; height: auto; display: block; margin: auto;">
+    </picture>
+</div>
+{% endblock %}
+

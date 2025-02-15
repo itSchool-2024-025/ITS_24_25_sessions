@@ -44,10 +44,10 @@ def home():
             #message = f"Item {item.inventory_number} is now \"Free\"."
 
         else:#User is not allowed to free the item when item already In Use by other user
-            print(f"Debug3 : Item is already In Use by other user: {current_user.user_name}")
-            message = "Item is already \"In Use\" by other user: \"{current_user.user_name}\""
+            print(f"Debug3 : Item is already  \"In Use \" by other user: {current_user.user_name}")
+            message = f"Action not allowed. Item is already  \"In Use \" by other user: \"{current_user.user_name}\""
 
-            return redirect(url_for('main.home', message=message))  # refresh page after update
+            return render_template("home_user_authenticated.html",inventory=inventory,message=message ) # refresh page after update
 
     return render_template("home_user_authenticated.html",inventory=inventory,message=message )
 
@@ -141,19 +141,33 @@ def add_item():
     if request.method == 'POST':
         # Process form data
         number = request.form.get('inventory_number')
-        description = request.form.get('inventory_description')
-        state = request.form.get('inventory_state')
-        booked = request.form.get('inventory_booked')
-        message = f"Inventory number: {number}, description: {description} , state: {state} booked: {booked} was added."
-        print(message)
-        inventory_item = Inventory(
-            inventory_number= number,
-            inventory_description = description,
-            inventory_state = state,
-            inventory_booked = booked
-        )
-        db.session.add(inventory_item)
-        db.session.commit()
+        print(f"debug1: number: {number}")
+
+        #search item in DB by inventory number
+        item = Inventory.query.filter_by(inventory_number=number).first()
+
+        if item: #item with same inventory number is found in DB
+            print(f"debug2: check_number: {item.inventory_number}")
+            message = f"Inventory {item.inventory_number} exists. Number must be unique."
+            print(message)
+
+        else: #item not found in DB
+
+            description = request.form.get('inventory_description')
+            state = request.form.get('inventory_state')
+            booked = request.form.get('inventory_booked')
+
+            inventory_item = Inventory(
+                inventory_number= number,
+                inventory_description = description,
+                inventory_state = state,
+                inventory_booked = booked
+            )
+
+            db.session.add(inventory_item)
+            db.session.commit()
+            message = f"Inventory number: {number}, description: {description} , state: {state} , Owned: {booked} was added."
+            print(message)
 
     return render_template('add_item.html', message=message)
 
@@ -166,7 +180,7 @@ def register():
         user_email = request.form.get("user_email")
         user_password = request.form.get('user_password')
         user_password_confirmed = request.form.get('user_password_confirmed')
-        message =f"User: {user_name} with Email: {user_email} , is now registered. You may now login."
+        message =f"User: {user_name} with e-mail: {user_email}, is now registered. You may now login."
         print(f"User {user_name}, email: {user_email} , passwd: {user_password}, password confirmed: {user_password_confirmed}.")
 
         if not user_name or not user_email or not user_password or not user_password_confirmed:

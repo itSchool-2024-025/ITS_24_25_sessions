@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Inventory Management</h2>
+    <h4>In this page user may release or book an inventory item</h4>
+    <br>
+
+<!-- Search Form -->
+    <form method="GET" action="{{ url_for('main.search_user') }}" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Search user, state, booked, descr..." value="{{ request.args.get('search', '') }}">
+            <button type="submit" class="btn btn-primary">Search</button><br><br>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th onclick="sortTable(0)">ID</th>
+                <th onclick="sortTable(1)">Inventory Number</th>
+                <th onclick="sortTable(2)">Description</th>
+                <th onclick="sortTable(3)">State</th>
+                <th onclick="sortTable(4)">Booked</th>
+                <th onclick="sortTable(5)">User</th>
+                <th onclick="sortTable(6)">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in inventory%}
+            <tr>
+                <td> {{ loop.index }} </td>
+                <td> {{ item.inventory_number }} </td>
+                <td> {{ item.inventory_description }} </td>
+                <td> {{ item.inventory_state }} </td>
+                {% if item.inventory_booked == "Free" %}   <td style="background-color:#00FF00"> {{ item.inventory_booked }}  </td>
+                {% endif %}
+                {% if item.inventory_booked == "In Use" %}  <td style="background-color:#FF0000"> {{ item.inventory_booked }}  </td>
+                {% endif %}
+                <td> {{ item.user_id }} </td>
+
+                <td>
+                    <form action="{{ url_for('main.home') }}" method="POST">
+                        <input type="hidden" name="inventory_number" value="{{ item.inventory_number }}">
+                        <button type="submit">Book/Release</button>
+                    </form>
+                </td>
+            </tr>
+           {% else %}
+            <tr>
+                <td colspan="8" class="text-center">No results found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+
+{% if message %}
+<p><strong>{{ message }}</strong></p>
+{% endif %}
+
+{% endblock %}

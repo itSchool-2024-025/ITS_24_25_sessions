@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block navbar %}
+<div class="topnav">
+    <a href="{{ url_for('main.home') }}">Home</a>
+    <a href="{{ url_for('main.admin') }}">Admin</a>
+    <a href="{{ url_for('main.add_item') }}">Add Item</a>
+    <a href="{{ url_for('main.about') }}">About</a>
+    <a class="active" href="{{ url_for('main.register') }}">Register</a>
+    <a href="{{ url_for('main.login') }}">Login</a>
+    <a href="{{ url_for('main.logout') }}">Logout</a>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+<div style="padding-left:16px">
+      <h2>Register</h2>
+    <br>
+
+    <form method="POST">
+        <label for="user_name"><strong>User Name:</strong></label><br>
+        <input type="text" id="user_name" name="user_name" required><br><br>
+
+        <label for="user_email"><strong>Email:</strong></label><br>
+        <input type="email" id="user_email" name="user_email" ><br><br>
+
+        <label for="user_password"><strong>Password:</strong></label><br>
+        <input type="password" id="user_password" name="user_password" ><br><br>
+
+        <label for="user_password_confirmed"><strong>Confirm Password:</strong></label><br>
+        <input type="password" id="user_password_confirmed" name="user_password_confirmed" ><br><br>
+
+
+        <button class="button" type="submit">Submit</button>
+    </form>
+
+</div>
+
+{% if message %}
+    <p><strong>{{ message }}</strong></p>
+{% endif %}
+
+{% endblock %}
